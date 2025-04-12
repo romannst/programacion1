@@ -228,29 +228,29 @@
 
 
             //PUNTO 5
-            Console.WriteLine("Los siguientes datos son necesarios para confeccionar la factura.");
-            Console.Write("Ingrese la forma de pago (E:efectivo; T:tarjeta; O:otro): ");
-            char forma_pago = char.Parse(Console.ReadLine());
-            Console.Write("Ingrese el monto de la compra: ");
-            double monto_compra = double.Parse(Console.ReadLine());
-            double descuento = 0;
-            double total_pago = monto_compra;
+//            Console.WriteLine("Los siguientes datos son necesarios para confeccionar la factura.");
+//            Console.Write("Ingrese la forma de pago (E:efectivo; T:tarjeta; O:otro): ");
+//            char forma_pago = char.Parse(Console.ReadLine());
+//            Console.Write("Ingrese el monto de la compra: ");
+//            double monto_compra = double.Parse(Console.ReadLine());
+//            double descuento = 0;
+//            double total_pago = monto_compra;
 
-            if(forma_pago == 'E' || forma_pago == 'e')
-            {
-                descuento = (monto_compra * 20) / 100;
-                total_pago -= descuento;
-            } else if((forma_pago == 'T' || forma_pago == 't') && monto_compra > 25000)
-            {
-                descuento = (monto_compra * 10) / 100;
-                total_pago -= descuento;
-            }
-            Console.WriteLine(@$"
-Forma de pago: (E: efectivo; T: tarjeta; O: otro): {forma_pago}
-Monto de la compra:                                {monto_compra}
-Descuento:                                         {descuento}
-Total a pagar:                                     {total_pago}
-            ");
+//            if(forma_pago == 'E' || forma_pago == 'e')
+//            {
+//                descuento = (monto_compra * 20) / 100;
+//                total_pago -= descuento;
+//            } else if((forma_pago == 'T' || forma_pago == 't') && monto_compra > 25000)
+//            {
+//                descuento = (monto_compra * 10) / 100;
+//                total_pago -= descuento;
+//            }
+//            Console.WriteLine(@$"
+//Forma de pago: (E: efectivo; T: tarjeta; O: otro): {forma_pago}
+//Monto de la compra:                                {monto_compra}
+//Descuento:                                         {descuento}
+//Total a pagar:                                     {total_pago}
+//            ");
 
             //PUNTO 6
             //Console.Write("Ingrese la medida del lado de un cuadrado: ");
