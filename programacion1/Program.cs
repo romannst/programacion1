@@ -228,29 +228,29 @@
 
 
             //PUNTO 5
-//            Console.WriteLine("Los siguientes datos son necesarios para confeccionar la factura.");
-//            Console.Write("Ingrese la forma de pago (E:efectivo; T:tarjeta; O:otro): ");
-//            char forma_pago = char.Parse(Console.ReadLine());
-//            Console.Write("Ingrese el monto de la compra: ");
-//            double monto_compra = double.Parse(Console.ReadLine());
-//            double descuento = 0;
-//            double total_pago = monto_compra;
+            //            Console.WriteLine("Los siguientes datos son necesarios para confeccionar la factura.");
+            //            Console.Write("Ingrese la forma de pago (E:efectivo; T:tarjeta; O:otro): ");
+            //            char forma_pago = char.Parse(Console.ReadLine());
+            //            Console.Write("Ingrese el monto de la compra: ");
+            //            double monto_compra = double.Parse(Console.ReadLine());
+            //            double descuento = 0;
+            //            double total_pago = monto_compra;
 
-//            if(forma_pago == 'E' || forma_pago == 'e')
-//            {
-//                descuento = (monto_compra * 20) / 100;
-//                total_pago -= descuento;
-//            } else if((forma_pago == 'T' || forma_pago == 't') && monto_compra > 25000)
-//            {
-//                descuento = (monto_compra * 10) / 100;
-//                total_pago -= descuento;
-//            }
-//            Console.WriteLine(@$"
-//Forma de pago: (E: efectivo; T: tarjeta; O: otro): {forma_pago}
-//Monto de la compra:                                {monto_compra}
-//Descuento:                                         {descuento}
-//Total a pagar:                                     {total_pago}
-//            ");
+            //            if(forma_pago == 'E' || forma_pago == 'e')
+            //            {
+            //                descuento = (monto_compra * 20) / 100;
+            //                total_pago -= descuento;
+            //            } else if((forma_pago == 'T' || forma_pago == 't') && monto_compra > 25000)
+            //            {
+            //                descuento = (monto_compra * 10) / 100;
+            //                total_pago -= descuento;
+            //            }
+            //            Console.WriteLine(@$"
+            //Forma de pago: (E: efectivo; T: tarjeta; O: otro): {forma_pago}
+            //Monto de la compra:                                {monto_compra}
+            //Descuento:                                         {descuento}
+            //Total a pagar:                                     {total_pago}
+            //            ");
 
             //PUNTO 6
             //Console.Write("Ingrese la medida del lado de un cuadrado: ");
@@ -310,7 +310,79 @@
             //    Console.WriteLine("El triángulo es Escaleno.");
             //}
 
+
+
+
+            //-----------------------------EJERCICIOS PRACTICA--------------------------------------------------
+
+            //registrar la nota de N alumnos y mostrar el alumno con el mejor promedio y el peor  
+            /*  
+            alumnos: es un arreglo de alumnos y dentro de los alumnos hay un arreglo de notas (3 notas por alumno)  
+            nota: ingresada por el usuario  
+            cant_alumnos: ingresada por el usuario  
+            suma_notas: suma de las notas de cada alumno  
+            promedio: promedio de las notas de cada alumno  
+            mejor_promedio: el mejor promedio  
+            peor_promedio: el peor promedio  
+            */
+            int cant_alumnos;
+            Console.Write("Ingrese la cantidad de alumnos: ");
+            cant_alumnos = int.Parse(Console.ReadLine());
+            object[,] alumnos_notas = new object[cant_alumnos, 4];
+            double promedio_mayor = 0;
+            double promedio_menor = 0;
+            for (int i = 0; i < cant_alumnos; i++)  
+            {
+                string nombre;
+                do
+                {
+                    Console.Write("Ingrese el nombre del alumno: ");
+                    nombre = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(nombre))
+                    {
+                        Console.WriteLine("El nombre no puede estar vacío. Intente nuevamente.");
+                    }
+                } while(string.IsNullOrWhiteSpace(nombre));
+                alumnos_notas[i, 0] = nombre;
+                int nota;
+                Console.WriteLine("Ingrese sus notas:");
+                for (int j = 1; j < 4; j++)
+                {
+                    do
+                    {
+                        nota = int.Parse(Console.ReadLine()); //tira error
+                        if (nota < 0 || nota > 10 || nota.ToString() == "")
+                        {
+                            Console.WriteLine("La nota debe ser un número entre 0 y 10. Intente nuevamente.");
+                        }
+                    } while (nota < 0 || nota > 10 || nota.ToString() == "");
+                    alumnos_notas[i,i] = nota;
+                }
+                double promedio_alumno = CalcularPromedio(alumnos_notas, i); 
+                if (i == 0 || promedio_alumno > promedio_mayor)
+                {
+                    promedio_mayor = promedio_alumno;
+                }
+                if (i == 0 || promedio_alumno < promedio_menor)
+                {
+                    promedio_menor = promedio_alumno;
+                }
+            }
+            Console.WriteLine($"El mejor promedio es: {promedio_mayor:F2}");
+            Console.WriteLine($"El peor promedio es: {promedio_menor:F2}");
         }
+
+        //metodo para calcular el promedio de un alumno
+        private static double CalcularPromedio(object[,] alumnos_notas, int indice_alumno)
+        {
+            int suma_notas = 0;
+            for (int j = 1; j < 4; j++)
+            {
+                suma_notas += (int)alumnos_notas[indice_alumno, j]; // Fix: Access the specific row and column  
+            }
+            return (double) suma_notas / 3;
+        }
+
     }
 }
 
