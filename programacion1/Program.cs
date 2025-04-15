@@ -344,19 +344,19 @@
                     }
                 } while(string.IsNullOrWhiteSpace(nombre));
                 alumnos_notas[i, 0] = nombre;
-                int nota;
+                double nota;
                 Console.WriteLine("Ingrese sus notas:");
                 for (int j = 1; j < 4; j++)
                 {
                     do
                     {
-                        nota = int.Parse(Console.ReadLine()); //tira error
+                        nota = double.Parse(Console.ReadLine());
                         if (nota < 0 || nota > 10 || nota.ToString() == "")
                         {
                             Console.WriteLine("La nota debe ser un número entre 0 y 10. Intente nuevamente.");
                         }
                     } while (nota < 0 || nota > 10 || nota.ToString() == "");
-                    alumnos_notas[i,i] = nota;
+                    alumnos_notas[i,j] = nota;
                 }
                 double promedio_alumno = CalcularPromedio(alumnos_notas, i); 
                 if (i == 0 || promedio_alumno > promedio_mayor)
@@ -375,10 +375,10 @@
         //metodo para calcular el promedio de un alumno
         private static double CalcularPromedio(object[,] alumnos_notas, int indice_alumno)
         {
-            int suma_notas = 0;
+            double suma_notas = 0;
             for (int j = 1; j < 4; j++)
             {
-                suma_notas += (int)alumnos_notas[indice_alumno, j]; // Fix: Access the specific row and column  
+                suma_notas += (double) alumnos_notas[indice_alumno, j]; // Fix: Access the specific row and column  
             }
             return (double) suma_notas / 3;
         }
