@@ -325,51 +325,156 @@
             mejor_promedio: el mejor promedio  
             peor_promedio: el peor promedio  
             */
-            int cant_alumnos;
-            Console.Write("Ingrese la cantidad de alumnos: ");
-            cant_alumnos = int.Parse(Console.ReadLine());
-            object[,] alumnos_notas = new object[cant_alumnos, 4];
-            double promedio_mayor = 0;
-            double promedio_menor = 0;
-            for (int i = 0; i < cant_alumnos; i++)  
+            //int cant_alumnos;
+            //Console.Write("Ingrese la cantidad de alumnos: ");
+            //cant_alumnos = int.Parse(Console.ReadLine());
+            //object[,] alumnos_notas = new object[cant_alumnos, 4];
+            //double promedio_mayor = 0;
+            //double promedio_menor = 0;
+            //for (int i = 0; i < cant_alumnos; i++)
+            //{
+            //    string nombre;
+            //    do
+            //    {
+            //        Console.Write("Ingrese el nombre del alumno: ");
+            //        nombre = Console.ReadLine();
+            //        if (string.IsNullOrWhiteSpace(nombre))
+            //        {
+            //            Console.WriteLine("El nombre no puede estar vacío. Intente nuevamente.");
+            //        }
+            //    } while (string.IsNullOrWhiteSpace(nombre));
+            //    alumnos_notas[i, 0] = nombre;
+            //    double nota;
+            //    Console.WriteLine("Ingrese sus notas:");
+            //    for (int j = 1; j < 4; j++)
+            //    {
+            //        do
+            //        {
+            //            nota = double.Parse(Console.ReadLine());
+            //            if (nota < 0 || nota > 10 || nota.ToString() == "")
+            //            {
+            //                Console.WriteLine("La nota debe ser un número entre 0 y 10. Intente nuevamente.");
+            //            }
+            //        } while (nota < 0 || nota > 10 || nota.ToString() == "");
+            //        alumnos_notas[i, j] = nota;
+            //    }
+            //    double promedio_alumno = CalcularPromedio(alumnos_notas, i);
+            //    if (i == 0 || promedio_alumno > promedio_mayor)
+            //    {
+            //        promedio_mayor = promedio_alumno;
+            //    }
+            //    if (i == 0 || promedio_alumno < promedio_menor)
+            //    {
+            //        promedio_menor = promedio_alumno;
+            //    }
+            //}
+            //Console.WriteLine($"El mejor promedio es: {promedio_mayor:F2}");
+            //Console.WriteLine($"El peor promedio es: {promedio_menor:F2}");
+
+            //TP 4
+
+            //PUNTO 1
+            //Console.WriteLine("Ingrese un numero entero positivo");
+            //int n = int.Parse(Console.ReadLine());
+            //for(int i = 1; i <= n; i++)
+            //{
+            //    Console.Write($"{i} ");
+            //}
+
+            //PUNTO 2
+            //Console.WriteLine("Ingrese un numero entero positivo");
+            //int n = int.Parse(Console.ReadLine());
+            //for(int i = 1; i <= n; i++)
+            //{
+            //    if(i % 2 == 0)
+            //    {
+            //        Console.Write($"{i} ");
+            //    }
+            //}
+
+            //PUNTO 3
+            //Console.Write("Cuantos valores quiere ingresar: ");
+            //int cant_valores = int.Parse(Console.ReadLine());
+            //int suma_valores = 0;
+            //int valor;
+            //Console.WriteLine("Ingrese los valores");
+            //for (int contador = 1; contador <= cant_valores; contador++)
+            //{
+            //    valor = int.Parse(Console.ReadLine());
+            //    suma_valores += valor;
+            //}
+            //int promedio = (suma_valores / cant_valores);
+            //Console.WriteLine($"La suma de los valores ingresados es {suma_valores} y su promedio es {promedio}");
+
+            //PUNTO 4
+            //Console.Write("Ingrese un numero entero positivo: ");
+            //int n = int.Parse(Console.ReadLine());
+            //Console.Write($"Los divisores de {n} son: ");
+            //for(int divisor = 1; divisor <= n; divisor++)
+            //{
+            //    if(divisor == n)
+            //    {
+            //        Console.Write($"{divisor}.");
+            //    } else if(n % divisor == 0)
+            //    {
+            //        Console.Write($"{divisor}, ");
+            //    }
+            //}
+
+            //PUNTO 5
+            //Console.WriteLine("Ingrese tres numeros enteros positivos");
+            //int A = int.Parse(Console.ReadLine());
+            //int B = int.Parse(Console.ReadLine());
+            //int X = int.Parse(Console.ReadLine());
+            //Console.Write($"Todos los multiplos de {X} entre {A} y {B} inclusive son: ");
+            //for(int n = A; n <= B; n++)
+            //{
+            //    if(n % X == 0)
+            //    {
+            //        Console.Write($"{n} ");
+            //    }
+            //}
+
+            //PUNTO 6
+            //Console.WriteLine("Ingrese las medidas de 2 lados del rectangulo");
+            //Console.Write("Ancho deseado: ");
+            //int ancho_rect = int.Parse(Console.ReadLine());
+            //Console.Write("Largo deseado: ");
+            //int largo_rect = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Dibujo del rectangulo:");
+            //for(int i = 0; i < ancho_rect; i++)
+            //{
+            //    for(int j = 0; j < largo_rect; j++)
+            //    {
+            //        Console.Write("* ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //PUNTO 7
+            Console.WriteLine("Ingrese las medidas de 2 lados del rectangulo");
+            Console.Write("Ancho deseado: ");
+            int ancho_rect = int.Parse(Console.ReadLine());
+            Console.Write("Largo deseado: ");
+            int largo_rect = int.Parse(Console.ReadLine());
+            Console.WriteLine("Dibujo del rectangulo:");
+            for (int i = 1; i <= ancho_rect; i++)
             {
-                string nombre;
-                do
+                for (int j = 1; j <= largo_rect; j++)
                 {
-                    Console.Write("Ingrese el nombre del alumno: ");
-                    nombre = Console.ReadLine();
-                    if (string.IsNullOrWhiteSpace(nombre))
+                    if (i == 2 && (j == 1 || j == largo_rect))
                     {
-                        Console.WriteLine("El nombre no puede estar vacío. Intente nuevamente.");
+                        Console.Write("*");
                     }
-                } while(string.IsNullOrWhiteSpace(nombre));
-                alumnos_notas[i, 0] = nombre;
-                double nota;
-                Console.WriteLine("Ingrese sus notas:");
-                for (int j = 1; j < 4; j++)
-                {
-                    do
+                    else
                     {
-                        nota = double.Parse(Console.ReadLine());
-                        if (nota < 0 || nota > 10 || nota.ToString() == "")
-                        {
-                            Console.WriteLine("La nota debe ser un número entre 0 y 10. Intente nuevamente.");
-                        }
-                    } while (nota < 0 || nota > 10 || nota.ToString() == "");
-                    alumnos_notas[i,j] = nota;
+                        Console.Write("* ");
+                    }
                 }
-                double promedio_alumno = CalcularPromedio(alumnos_notas, i); 
-                if (i == 0 || promedio_alumno > promedio_mayor)
-                {
-                    promedio_mayor = promedio_alumno;
-                }
-                if (i == 0 || promedio_alumno < promedio_menor)
-                {
-                    promedio_menor = promedio_alumno;
-                }
+                Console.WriteLine();
             }
-            Console.WriteLine($"El mejor promedio es: {promedio_mayor:F2}");
-            Console.WriteLine($"El peor promedio es: {promedio_menor:F2}");
+
+
         }
 
         //metodo para calcular el promedio de un alumno
