@@ -2,6 +2,12 @@
 {
     internal class Program
     {
+        static int ObtenerDiasDelMes(int mes, int año)
+        {
+            if (mes == 2) return (año % 400 == 0) || (año % 100 != 0 && año % 4 == 0) ? 29 : 28;
+            if (mes == 4 || mes == 6 || mes == 9 || mes == 11) return 30;
+            return 31;
+        }
         static void Main(string[] args)
         {
             //Console.Write("Ingrese su nombre: ");
@@ -217,12 +223,69 @@
             //}
 
             //PUNTO 3
-            /*
-            dia
-            mese
-            año
-            edad_actual 
-            */
+            //Console.WriteLine("Ingrese su fecha de nacimiento: dd mm aa");
+            //int dia_nac = int.Parse(Console.ReadLine());
+            //int mes_nac = int.Parse(Console.ReadLine());
+            //int año_nac = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Ingrese la fecha actual: dd mm aa");
+            //int dia_act = int.Parse(Console.ReadLine());
+            //int mes_act = int.Parse(Console.ReadLine());
+            //int año_act = int.Parse(Console.ReadLine());
+
+            //if (año_nac > año_act) 
+            //{
+            //    Console.WriteLine("El año de nacimiento no puede ser mayor al actual. Fecha Inválida.");
+            //}
+            //if(mes_nac < 0 || mes_nac > 12 || mes_act < 0 || mes_act > 12)
+            //{
+            //    Console.WriteLine("El mes no puede ser menor a 0 o mayor a 12. Fecha inválida.");
+            //}
+            //if(dia_nac >= 1 || dia_nac <= 31 || dia_act >= 1 || dia_act <= 31)
+            //{
+            //    int[] dias_mes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            //    if (mes_nac == 2 && año_nac % 4 == 0 && (año_nac % 100 != 0 || año_nac % 400 == 0))
+            //    {
+            //        dias_mes[1] = 29; // Año bisiesto
+            //    }
+            //} else
+            //{
+            //    Console.WriteLine("El día no puede ser menor a 1 o mayor a 31. Fecha inválida.");
+            //}
+
+            //int edad_años = año_act - año_nac;
+            //if(mes_act < mes_nac || (mes_act == mes_nac && dia_act < dia_nac))
+            //{
+            //    edad_años--;
+            //}
+            //int edad_meses;
+            //if (mes_act >= mes_nac)
+            //{
+            //    edad_meses = mes_act - mes_nac;
+            //} else
+            //{
+            //    edad_meses = 12 - (mes_nac - mes_act);
+            //}
+            //if(dia_act < dia_nac)
+            //{
+            //    edad_meses--;
+            //}
+            //int edad_dias;
+            //if(dia_act >= dia_nac)
+            //{
+            //    edad_dias = dia_act - dia_nac;
+            //} else
+            //{
+            //    int ultimo_dia_mes_anterior = ObtenerDiasDelMes(mes_act - 1, año_act);
+            //    edad_dias = (ultimo_dia_mes_anterior - dia_nac) + dia_act;
+            //}
+
+            //if (dia_act == dia_nac && mes_act == mes_nac)
+            //{
+            //    Console.WriteLine($"¡Feliz Cumpleaños! Hoy cumple {edad_años} años.");
+            //} else
+            //{
+            //    Console.WriteLine($"Su edad es: {edad_años} años.");
+            //}
 
             //PUNTO 4
 
@@ -266,27 +329,64 @@
             //}
 
             //PUNTO 7
-            //double n_mayor = 0;
-            //double n_menor = 0;
+            //double n_mayor;
+            //double n_menor;
             //Console.WriteLine("Ingrese tres números distintos");
-            //double n1 = double.Parse(Console.ReadLine()); 
-            //double n2 = double.Parse(Console.ReadLine()); 
-            //double n3 = double.Parse(Console.ReadLine());
-            //if(n1 > n2)
+            //double n1 = 0;
+            //double n2 = 0;
+            //double n3 = 0;
+            //bool esValido;
+            //bool distintos;
+            //do
+            //{
+            //    string input1 = Console.ReadLine();
+            //    string input2 = Console.ReadLine();
+            //    string input3 = Console.ReadLine();
+            //    esValido = double.TryParse(input1, out n1) && double.TryParse(input2, out n2) && double.TryParse(input3, out n3);
+            //    distintos = n1 != n2 && n1 != n3 && n2 != n3;
+            //    if (!esValido || !distintos)
+            //    {
+            //        Console.WriteLine("Los números ingresados no son válidos. Intente nuevamente.");
+            //    }
+            //} while (!esValido || !distintos);
+
+            //if (n1 > n2 && n1 > n3)
             //{
             //    n_mayor = n1;
-            //    n_menor = n2;
-            //} else if(n2 > n3)
+            //    if (n2 > n3)
+            //    {
+            //        n_menor = n3;
+            //    }
+            //    else
+            //    {
+            //        n_menor = n2;
+            //    }
+            //}
+            //else if (n2 > n1 && n2 > n3)
             //{
-            //    n_menor = n1;
             //    n_mayor = n2;
-            //} else if(n3 > n1)
+            //    if(n1 > n3)
+            //    {
+            //        n_menor = n3;
+            //    }
+            //    else
+            //    {
+            //        n_menor = n1;
+            //    }
+            //}
+            //else
             //{
             //    n_mayor = n3;
-            //} else
-            //{
-
+            //    if (n1 > n2)
+            //    {
+            //        n_menor = n2;
+            //    }
+            //    else
+            //    {
+            //        n_menor = n1;
+            //    }
             //}
+            //Console.WriteLine($"El número mayor es: {n_mayor} y el menor es {n_menor}");
 
             //PUNTO 8
             //Console.WriteLine("Ingrese la medida de los tres lados del triángulo");
@@ -452,29 +552,115 @@
             //}
 
             //PUNTO 7
-            Console.WriteLine("Ingrese las medidas de 2 lados del rectangulo");
-            Console.Write("Ancho deseado: ");
-            int ancho_rect = int.Parse(Console.ReadLine());
-            Console.Write("Largo deseado: ");
-            int largo_rect = int.Parse(Console.ReadLine());
-            Console.WriteLine("Dibujo del rectangulo:");
-            for (int i = 1; i <= ancho_rect; i++)
-            {
-                for (int j = 1; j <= largo_rect; j++)
-                {
-                    if (i == 2 && (j == 1 || j == largo_rect))
-                    {
-                        Console.Write("*");
-                    }
-                    else
-                    {
-                        Console.Write("* ");
-                    }
-                }
-                Console.WriteLine();
-            }
+            //Console.WriteLine("Ingrese las medidas de 2 lados del rectangulo");
+            //int ancho_rect;
+            //int largo_rect;
+            //do
+            //{
+            //    Console.Write("Ancho deseado: ");
+            //    ancho_rect = int.Parse(Console.ReadLine());
+            //    Console.Write("Largo deseado: ");
+            //    largo_rect = int.Parse(Console.ReadLine());
+            //    if(ancho_rect <= 0 || largo_rect <= 0)
+            //    {
+            //        Console.WriteLine("Ambas medidas deben ser mayores a 0. Intente nuevamente.");
+            //    }
+            //} while (ancho_rect <= 0 || largo_rect <= 0);
 
+            //Console.WriteLine("Dibujo del rectangulo:");
+            //for (int fila = 1; fila <= largo_rect; fila++)
+            //{
+            //    for (int columna = 1; columna <= ancho_rect; columna++)
+            //    {
+            //        if(fila == 1 || fila == largo_rect || columna == 1 || columna == ancho_rect)
+            //        {
+            //            Console.Write("* ");
+            //        }
+            //        else
+            //        {
+            //            Console.Write("  ");
+            //        }
+            //    }
+            //    Console.WriteLine();
+            //}
 
+            //PUNTO 8
+            //Console.WriteLine("Ingrese números enteros positivos:");
+            //int suma = 0;
+            //int cant_n = 0;
+            //double promedio = 0;
+            //int n = int.Parse(Console.ReadLine());
+            //while(n > 0)
+            //{
+            //    suma += n;
+            //    cant_n++;
+            //    n = int.Parse(Console.ReadLine());
+            //}
+            //if(cant_n == 0)
+            //{
+            //    Console.WriteLine("No se ingresaron números positivos.");
+            //} else
+            //{
+            //    promedio = (double) suma / cant_n;
+            //}
+            //Console.WriteLine($"El promedio es {promedio} con un total de {cant_n} ingresos.");
+
+            //PUNTO 9
+            //Console.WriteLine("Ingrese números enteros positivos:");
+            //int n = int.Parse(Console.ReadLine());
+            //int n_ingresado = n;
+            //bool ordenada = true;
+            //while(n != 0)
+            //{
+            //    if(n < n_ingresado)
+            //    {
+            //        ordenada = false;
+            //    } else
+            //    {
+            //        n_ingresado = n;
+            //    }
+            //    n = int.Parse(Console.ReadLine());
+            //}
+            //if(ordenada)
+            //{
+            //    Console.WriteLine("Los números están ordenados de menor a mayor.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Los números no están ordenados de menor a mayor.");
+            //}
+
+            //PUNTO 10
+            //Console.Write("Ingrese un caracter: ");
+            //char caracter = char.Parse(Console.ReadLine());
+            //int cant_repetir;
+            //do
+            //{
+            //    Console.Write("Ingrese un número natural: ");
+            //    cant_repetir = int.Parse(Console.ReadLine());
+            //    if (cant_repetir <= 0)
+            //    {
+            //        Console.WriteLine("El número ingresado no es natural. Intente nuevamente.");
+            //    }
+            //} while (cant_repetir <= 0);
+            //for(int vuelta = 1; vuelta <= cant_repetir; vuelta++)
+            //{
+            //    Console.Write($"{caracter}");
+            //}
+
+            //PUNTO 11
+            //Console.Write("Ingrese un texto para contar la cantidad de vocales que contiene: ");
+            //string texto = Console.ReadLine().ToLower();
+            //int cant_vocales = 0;
+            //for (int i = 0; i < texto.Length-1; i++)
+            //{
+            //    char letra = texto[i];
+            //    if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u')
+            //    {
+            //        cant_vocales++;
+            //    }
+            //}
+            //Console.WriteLine($"El texto ingresado tiene {cant_vocales} vocales.");
         }
 
         //metodo para calcular el promedio de un alumno
@@ -483,7 +669,7 @@
             double suma_notas = 0;
             for (int j = 1; j < 4; j++)
             {
-                suma_notas += (double) alumnos_notas[indice_alumno, j]; // Fix: Access the specific row and column  
+                suma_notas += (double) alumnos_notas[indice_alumno, j];
             }
             return (double) suma_notas / 3;
         }
