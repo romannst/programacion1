@@ -661,6 +661,48 @@
             //    }
             //}
             //Console.WriteLine($"El texto ingresado tiene {cant_vocales} vocales.");
+
+            Console.Write("Ingresar la altura del rombo (número impar): ");
+            int altura = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            // Asegurar que la altura sea impar
+            if (altura % 2 == 0)
+            {
+                altura++;
+                Console.WriteLine("Ajustando altura a " + altura + " (debe ser impar).");
+            }
+
+            int mitad = altura / 2 + 1;
+
+            // Parte superior
+            for (int fila = 1; fila <= mitad; fila++)
+            {
+                // Espacios
+                for (int espacio = 1; espacio <= mitad - fila; espacio++)
+                    Console.Write(" ");
+
+                // Asteriscos
+                for (int asterisco = 1; asterisco <= 2 * fila - 1; asterisco++)
+                    Console.Write("*");
+
+                Console.WriteLine();
+            }
+
+            // Parte inferior
+            for (int fila = mitad - 1; fila >= 1; fila--)
+            {
+                // Espacios
+                for (int espacio = 1; espacio <= mitad - fila; espacio++)
+                    Console.Write(" ");
+
+                // Asteriscos
+                for (int asterisco = 1; asterisco <= 2 * fila - 1; asterisco++)
+                    Console.Write("*");
+
+                Console.WriteLine();
+            }
+
         }
 
         //metodo para calcular el promedio de un alumno
@@ -673,6 +715,48 @@
             }
             return (double) suma_notas / 3;
         }
+
+        //int altura = 0;
+        //string input;
+        //bool cond;
+        //do
+        //{
+        //    Console.Write("Ingresar la altura del triangulo: ");
+        //    input = Console.ReadLine();
+        //    cond = int.TryParse(input, out altura);
+        //    if(altura < 1 || altura > 9 || !cond)
+        //    {
+        //        Console.WriteLine("Ingrese la altura del triángulo nuevamente.");
+        //    }
+        //} while(altura < 1 || altura > 9 || !cond);
+        //Console.WriteLine(" ");
+
+        //// piramide n renglones (n<=9)
+        ////   1
+        ////  121
+        //// 12321
+        //// 1..n..1
+        //for (int renglon = 1; renglon <= altura; renglon++)
+        //{
+
+        //    for (int espacio = 1; espacio <= altura - renglon; espacio++)
+        //    {//se encarga de escribir los espacios del renglon
+        //        Console.Write(" ");
+        //    }
+
+        //    //escribo secuencia creciente: desde 1 ¿hasta donde? hasta numero de renglon
+        //    for (int indice = 1; indice <= renglon; indice++)
+        //    {
+        //        Console.Write(indice);//(*)
+        //    }
+
+        //    //escribo la secuencia decreciente ¿desde donde? desde (renglon-1) hasta 1
+        //    for (int indice = renglon - 1; indice >= 1; indice--)
+        //    {
+        //        Console.Write(indice);//(*)
+        //    }
+        //    Console.WriteLine();
+        //}
 
     }
 }
