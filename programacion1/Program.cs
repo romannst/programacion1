@@ -471,7 +471,7 @@
             //Console.WriteLine($"El mejor promedio es: {promedio_mayor:F2}");
             //Console.WriteLine($"El peor promedio es: {promedio_menor:F2}");
 
-            //TP 4
+            //TP Nº4
 
             //PUNTO 1
             //Console.WriteLine("Ingrese un numero entero positivo");
@@ -662,47 +662,174 @@
             //}
             //Console.WriteLine($"El texto ingresado tiene {cant_vocales} vocales.");
 
-            Console.Write("Ingresar la altura del rombo (número impar): ");
-            int altura = int.Parse(Console.ReadLine());
+            //Console.Write("Ingresar la altura del rombo (número impar): ");
+            //int altura = int.Parse(Console.ReadLine());
+            //Console.WriteLine();
+
+            //// Asegurar que la altura sea impar
+            //if (altura % 2 == 0)
+            //{
+            //    altura++;
+            //    Console.WriteLine("Ajustando altura a " + altura + " (debe ser impar).");
+            //}
+
+            //int mitad = altura / 2 + 1;
+
+            //// Parte superior
+            //for (int fila = 1; fila <= mitad; fila++)
+            //{
+            //    // Espacios
+            //    for (int espacio = 1; espacio <= mitad - fila; espacio++)
+            //        Console.Write(" ");
+
+            //    // Asteriscos
+            //    for (int asterisco = 1; asterisco <= 2 * fila - 1; asterisco++)
+            //        Console.Write("*");
+
+            //    Console.WriteLine();
+            //}
+
+            //// Parte inferior
+            //for (int fila = mitad - 1; fila >= 1; fila--)
+            //{
+            //    // Espacios
+            //    for (int espacio = 1; espacio <= mitad - fila; espacio++)
+            //        Console.Write(" ");
+
+            //    // Asteriscos
+            //    for (int asterisco = 1; asterisco <= 2 * fila - 1; asterisco++)
+            //        Console.Write("*");
+
+            //    Console.WriteLine();
+            //}
+
+            //TP Nº5
+
+            //PUNTO 1
+            //int[] arreglo_numeros = new int[10];
+            //Random numero_aleatorio = new Random();
+            //for (int i = 0; i < arreglo_numeros.Length; i++)
+            //{
+            //    arreglo_numeros[i] = numero_aleatorio.Next(1, 20);
+            //}
+
+            //int numero_a_buscar = -1;
+            //string input;
+            //bool incorrecto = true;
+            //Console.Write("Ingrese un número a buscar en el arreglo: ");
+            //while (incorrecto)
+            //{
+            //    input = Console.ReadLine();
+
+            //    // Usar TryParse para validar si es un número
+            //    if (int.TryParse(input, out numero_a_buscar))
+            //    {
+            //        Console.WriteLine($"¡Gracias! Has ingresado el número: {numero_a_buscar}");
+            //        incorrecto = false;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Entrada no válida. Por favor, ingrese un número:");
+            //    }
+            //}
+
+            //while(numero_a_buscar >= 0)
+            //{
+            //    bool encontrado = false;
+            //    int posicion = 0;
+            //    while (posicion < arreglo_numeros.Length && !encontrado)
+            //    {
+            //        if (arreglo_numeros[posicion] == numero_a_buscar)
+            //        {
+            //            encontrado = true;
+            //        }
+            //        else
+            //        {
+            //            posicion++;
+            //        }
+            //    }
+            //    if (encontrado)
+            //    {
+            //        Console.WriteLine($"El número {numero_a_buscar} se encuentra en la posición {posicion} del arreglo.");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"El número {numero_a_buscar} no se encuentra en el arreglo.");
+            //    }
+            //    Console.Write("Ingrese otro número a buscar en el arreglo o -1 para terminar el programa:  ");
+            //    numero_a_buscar = int.Parse(Console.ReadLine());
+            //}
+
+            //PUNTO 2
+            //int[] arreglo_numeros = new int[10];
+            //Random numero_aleatorio = new Random();
+            //for (int i = 0; i < arreglo_numeros.Length; i++)
+            //{
+            //    arreglo_numeros[i] = numero_aleatorio.Next(1, 100);
+            //}
+            //int cant_mayores = 0;
+            //for(int i = 0; i < arreglo_numeros.Length; i++)
+            //{
+            //    if (arreglo_numeros[i] > 50)
+            //    {
+            //        cant_mayores++;
+            //    }
+            //}
+            //Console.WriteLine($"El arreglo tiene {cant_mayores} números mayores a 50.");
+
+            //PUNTO 3
+            //int[] arreglo_numeros = new int[20];
+            //Random numero_aleatorio = new Random();
+            //int suma = 0;
+            //for (int i = 0; i < arreglo_numeros.Length; i++)
+            //{
+            //    arreglo_numeros[i] = numero_aleatorio.Next(1, 100);
+            //    suma += arreglo_numeros[i];
+            //}
+            //double promedio = (double)suma / arreglo_numeros.Length;
+            //Console.WriteLine($"El promedio de los números en el arreglo es {promedio}");
+            //int cant_mayores = 0;
+            //for(int i = 0; i < arreglo_numeros.Length; i++)
+            //{
+            //    if (arreglo_numeros[i] > promedio)
+            //    {
+            //        cant_mayores++;
+            //    }
+            //}
+            //Console.WriteLine($"En el arreglo hay {cant_mayores} número/s mayor/es al promedio.");
+            
+            //PUNTO 4 (Procedimiento)
+            //punto4();
+
+            //PUNTO 5
+
+
+        }
+
+        //PUNTO 4
+        public static void punto4()
+        {
+            int[] arreglo_numeros = new int[8];
+            Random numero_aleatorio = new Random();
+            Console.Write("El arreglo original: ");
+            for (int i = 0; i < arreglo_numeros.Length; i++)
+            {
+                arreglo_numeros[i] = numero_aleatorio.Next(1, 100);
+                Console.Write($"{arreglo_numeros[i]} ");
+            }
             Console.WriteLine();
-
-            // Asegurar que la altura sea impar
-            if (altura % 2 == 0)
+            int[] arreglo_inverso = new int[arreglo_numeros.Length];
+            Console.Write("El arreglo original invertido: ");
+            int indice = 0;
+            int j = arreglo_numeros.Length - 1;
+            while (j >= 0 && indice < arreglo_inverso.Length)
             {
-                altura++;
-                Console.WriteLine("Ajustando altura a " + altura + " (debe ser impar).");
+                arreglo_inverso[indice] = arreglo_numeros[j];
+                Console.Write($"{arreglo_inverso[indice]} ");
+                indice++;
+                j--;
             }
-
-            int mitad = altura / 2 + 1;
-
-            // Parte superior
-            for (int fila = 1; fila <= mitad; fila++)
-            {
-                // Espacios
-                for (int espacio = 1; espacio <= mitad - fila; espacio++)
-                    Console.Write(" ");
-
-                // Asteriscos
-                for (int asterisco = 1; asterisco <= 2 * fila - 1; asterisco++)
-                    Console.Write("*");
-
-                Console.WriteLine();
-            }
-
-            // Parte inferior
-            for (int fila = mitad - 1; fila >= 1; fila--)
-            {
-                // Espacios
-                for (int espacio = 1; espacio <= mitad - fila; espacio++)
-                    Console.Write(" ");
-
-                // Asteriscos
-                for (int asterisco = 1; asterisco <= 2 * fila - 1; asterisco++)
-                    Console.Write("*");
-
-                Console.WriteLine();
-            }
-
+            Console.WriteLine();
         }
 
         //metodo para calcular el promedio de un alumno
@@ -756,6 +883,70 @@
         //        Console.Write(indice);//(*)
         //    }
         //    Console.WriteLine();
+        //}
+
+        //Ejercicio Número aleatorio
+        //int num_usuario;
+        //Console.Write("Ingrese un número del 1 al 5: ");
+        //do
+        //{
+        //    num_usuario = int.Parse(Console.ReadLine());
+        //    if(num_usuario < 1 || num_usuario > 5)
+        //    {
+        //        Console.WriteLine("El número ingresado no es válido. Intente nuevamente.");
+        //    }
+        //} while (num_usuario < 1 || num_usuario > 5);
+        //Random num_programa = new Random();
+        //int num_aleatorio = num_programa.Next(1, 5);
+        //while (num_usuario != num_aleatorio)
+        //{
+        //    Console.WriteLine("No acertaste el número. Intenta nuevamente");
+        //    do
+        //    {
+        //        num_usuario = int.Parse(Console.ReadLine());
+        //        if (num_usuario < 1 || num_usuario > 5)
+        //        {
+        //            Console.WriteLine("El número ingresado no es válido. Intente nuevamente.");
+        //        }
+        //    } while (num_usuario < 1 || num_usuario > 5);
+        //    num_aleatorio = num_programa.Next(1, 5);
+        //}
+        //Console.WriteLine("¡Felicidades! Acertaste el número.");
+
+        //Ejercicio Piedra, papel o tijera
+        //int opcion_usuario;
+        //Console.Write("Elija una opción (1=Piedra, 2=Papel, 3=Tijera) ");
+        //do
+        //{
+        //    opcion_usuario = int.Parse(Console.ReadLine());
+        //    if (opcion_usuario < 1 || opcion_usuario > 3)
+        //    {
+        //        Console.WriteLine("El número ingresado no es válido. Intente nuevamente.");
+        //    }
+        //} while (opcion_usuario < 1 || opcion_usuario > 3);
+        //Random opcion_programa = new Random();
+        //int opcion_aleatoria = opcion_programa.Next(1, 3);
+        ////ganador 2papel&&1piedra->2 3tijera&&2papel->3 1piedra&&3tijera->1 
+        //while (opcion_usuario == opcion_aleatoria)
+        //{
+        //    Console.WriteLine("No hay ganador. Intenta nuevamente");
+        //    do
+        //    {
+        //        opcion_usuario = int.Parse(Console.ReadLine());
+        //        if (opcion_usuario < 1 || opcion_usuario > 3)
+        //        {
+        //            Console.WriteLine("El número ingresado no es válido. Intente nuevamente.");
+        //        }
+        //    } while (opcion_usuario < 1 || opcion_usuario > 3);
+        //    opcion_aleatoria = opcion_programa.Next(1, 3);
+        //}
+        //if(opcion_usuario == 1 && opcion_aleatoria == 2 || opcion_usuario == 2 && opcion_aleatoria == 3 || opcion_usuario == 3 && opcion_aleatoria == 1)
+        //{
+        //    Console.WriteLine($"Perdiste. La opción del programa fue {opcion_aleatoria}");
+        //}
+        //else
+        //{
+        //    Console.WriteLine($"Ganaste. La opción del programa fue {opcion_aleatoria}");
         //}
 
     }
