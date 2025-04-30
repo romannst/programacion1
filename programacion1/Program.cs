@@ -801,8 +801,89 @@
             //PUNTO 4 (Procedimiento)
             //punto4();
 
-            //PUNTO 5
+            //int[] arreglo1_aleatorio = new int[5];
+            //int[] arreglo2_aleatorio = new int[5];
+            //Random numero_aleatorio = new Random();
 
+            //for(int i = 0; i < 5; i++)
+            //{
+            //    arreglo1_aleatorio[i] = numero_aleatorio.Next(3, 57);
+            //    arreglo2_aleatorio[i] = numero_aleatorio.Next(3, 57);
+            //}
+
+            //Console.Write("El arreglo 1 es el siguiente: [");
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    if (i != 4)
+            //    {
+            //        Console.Write($"{arreglo1_aleatorio[i]}, ");
+            //    }
+            //    else
+            //    {
+            //        Console.Write($"{arreglo1_aleatorio[i]}");
+            //    }
+            //}
+            //Console.Write("]");
+            //Console.Write("El arreglo 2 es el siguiente: [");
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    if (i != 4)
+            //    {
+            //        Console.Write($"{arreglo2_aleatorio[i]}, ");
+            //    }
+            //    else
+            //    {
+            //        Console.Write($"{arreglo2_aleatorio[i]}");
+            //    }
+            //}
+            //Console.Write("]");
+
+            //int[] suma_arreglos = new int[5];
+            //Console.Write("El arreglo suma es el siguiente: [");
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    suma_arreglos[i] = arreglo1_aleatorio[i] + arreglo2_aleatorio[i];
+            //    if(i != 4)
+            //    {
+            //        Console.Write($"{suma_arreglos[i]}, ");
+            //    } else
+            //    {
+            //        Console.Write($"{suma_arreglos[i]}");
+            //    }
+            //}
+            //Console.Write("]");
+            
+            //PUNTO 6
+            Console.Write("Cuantas notas desea cargar? --> ");
+            int cant_notas = int.Parse(Console.ReadLine());
+            decimal[] notas_alumnos = new decimal[cant_notas];
+            Console.WriteLine("A continuacion debe ingresar las notas de los alumnos.");
+            for(int i = 0; i < notas_alumnos.Length; i++)
+            {
+                Console.Write("Ingrese una nota: ");
+                notas_alumnos[i] = decimal.Parse(Console.ReadLine());
+            }
+            decimal nota_actual;
+            decimal nota_masbaja = 11;
+            decimal nota_masalta = 0;
+            int posicion_masalta = 0;
+            int posicion_masbaja = 0;
+            for (int i = 0; i < notas_alumnos.Length; i++)
+            {
+                nota_actual = notas_alumnos[i];
+                if(nota_actual >= nota_masalta)
+                {
+                    nota_masalta = nota_actual;
+                    posicion_masalta = i;
+                } else if(nota_actual < nota_masbaja)
+                {
+                    nota_masbaja = nota_actual;
+                    posicion_masbaja = i;
+                }
+                // 5 notas: 9,5 8 2 6 8
+            }
+            Console.WriteLine($"La nota mas alta del arreglo es {nota_masalta} en el indice nro. {posicion_masalta}");
+            Console.WriteLine($"La nota mas baja del arreglo es {nota_masbaja} en el indice nro. {posicion_masbaja}");
 
         }
 
