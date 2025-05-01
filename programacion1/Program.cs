@@ -875,7 +875,8 @@
                 {
                     nota_masalta = nota_actual;
                     posicion_masalta = i;
-                } else if(nota_actual < nota_masbaja)
+                }
+                if(nota_actual < nota_masbaja)
                 {
                     nota_masbaja = nota_actual;
                     posicion_masbaja = i;
@@ -884,6 +885,44 @@
             }
             Console.WriteLine($"La nota mas alta del arreglo es {nota_masalta} en el indice nro. {posicion_masalta}");
             Console.WriteLine($"La nota mas baja del arreglo es {nota_masbaja} en el indice nro. {posicion_masbaja}");
+
+            //PUNTO 7
+            Console.Write("Ingrese un numero: ");
+            int num = int.Parse(Console.ReadLine());
+            int[] digitos_num = new int[num.ToString().Length];
+            int i = digitos_num.Length-1;
+            int aux = num;
+            int digito;
+            while(aux != 0)
+            {
+                digito = aux % 10;
+                aux = aux / 10;
+                digitos_num[i] = digito;
+                i--;
+            }
+
+
+            int mayor = 0;
+            int menor = 10;
+            int pos_mayor = 0;
+            int pos_menor = 0;
+            int dig_actual;
+            for(int j = 0; j < digitos_num.Length; j++)
+            {
+                dig_actual = digitos_num[j];
+                if(dig_actual >mayor)
+                {
+                    mayor = dig_actual;
+                    pos_mayor = j;
+                }
+                if(dig_actual < menor)
+                {
+                    menor = dig_actual;
+                    pos_menor = j;
+                }
+            }
+
+            Console.WriteLine($"El digito mas bajo del arreglo esta en la posicion {pos_menor} y el mas alto en la posicion {pos_mayor}");
 
         }
 
