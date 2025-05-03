@@ -854,75 +854,268 @@
             //Console.Write("]");
             
             //PUNTO 6
-            Console.Write("Cuantas notas desea cargar? --> ");
-            int cant_notas = int.Parse(Console.ReadLine());
-            decimal[] notas_alumnos = new decimal[cant_notas];
-            Console.WriteLine("A continuacion debe ingresar las notas de los alumnos.");
-            for(int i = 0; i < notas_alumnos.Length; i++)
-            {
-                Console.Write("Ingrese una nota: ");
-                notas_alumnos[i] = decimal.Parse(Console.ReadLine());
-            }
-            decimal nota_actual;
-            decimal nota_masbaja = 11;
-            decimal nota_masalta = 0;
-            int posicion_masalta = 0;
-            int posicion_masbaja = 0;
-            for (int i = 0; i < notas_alumnos.Length; i++)
-            {
-                nota_actual = notas_alumnos[i];
-                if(nota_actual >= nota_masalta)
-                {
-                    nota_masalta = nota_actual;
-                    posicion_masalta = i;
-                }
-                if(nota_actual < nota_masbaja)
-                {
-                    nota_masbaja = nota_actual;
-                    posicion_masbaja = i;
-                }
-                // 5 notas: 9,5 8 2 6 8
-            }
-            Console.WriteLine($"La nota mas alta del arreglo es {nota_masalta} en el indice nro. {posicion_masalta}");
-            Console.WriteLine($"La nota mas baja del arreglo es {nota_masbaja} en el indice nro. {posicion_masbaja}");
+            //Console.Write("Cuantas notas desea cargar? --> ");
+            //int cant_notas = int.Parse(Console.ReadLine());
+            //decimal[] notas_alumnos = new decimal[cant_notas];
+            //Console.WriteLine("A continuacion debe ingresar las notas de los alumnos.");
+            //for (int i = 0; i < notas_alumnos.Length; i++)
+            //{
+            //    Console.Write("Ingrese una nota: ");
+            //    notas_alumnos[i] = decimal.Parse(Console.ReadLine());
+            //}
+            //decimal nota_actual;
+            //decimal nota_masbaja = 11;
+            //decimal nota_masalta = 0;
+            //int posicion_masalta = 0;
+            //int posicion_masbaja = 0;
+            //for (int i = 0; i < notas_alumnos.Length; i++)
+            //{
+            //    nota_actual = notas_alumnos[i];
+            //    if (nota_actual >= nota_masalta)
+            //    {
+            //        nota_masalta = nota_actual;
+            //        posicion_masalta = i;
+            //    }
+            //    if (nota_actual < nota_masbaja)
+            //    {
+            //        nota_masbaja = nota_actual;
+            //        posicion_masbaja = i;
+            //    }
+            //    // 5 notas: 9,5 8 2 6 8
+            //}
+            //Console.WriteLine($"La nota mas alta del arreglo es {nota_masalta} en el indice nro. {posicion_masalta}");
+            //Console.WriteLine($"La nota mas baja del arreglo es {nota_masbaja} en el indice nro. {posicion_masbaja}");
 
             //PUNTO 7
-            Console.Write("Ingrese un numero: ");
-            int num = int.Parse(Console.ReadLine());
-            int[] digitos_num = new int[num.ToString().Length];
-            int i = digitos_num.Length-1;
-            int aux = num;
-            int digito;
-            while(aux != 0)
-            {
-                digito = aux % 10;
-                aux = aux / 10;
-                digitos_num[i] = digito;
-                i--;
-            }
+            //Console.Write("Ingrese un numero: ");
+            //int num = int.Parse(Console.ReadLine());
+            //int[] digitos_num = new int[num.ToString().Length];
+            //int i = digitos_num.Length - 1;
+            //int aux = num;
+            //int digito;
+            //while (aux != 0)
+            //{
+            //    digito = aux % 10;
+            //    aux = aux / 10;
+            //    digitos_num[i] = digito;
+            //    i--;
+            //}
+            //int mayor = 0;
+            //int menor = 10;
+            //int pos_mayor = 0;
+            //int pos_menor = 0;
+            //int dig_actual;
+            //for (int j = 0; j < digitos_num.Length; j++)
+            //{
+            //    dig_actual = digitos_num[j];
+            //    if (dig_actual > mayor)
+            //    {
+            //        mayor = dig_actual;
+            //        pos_mayor = j;
+            //    }
+            //    if (dig_actual < menor)
+            //    {
+            //        menor = dig_actual;
+            //        pos_menor = j;
+            //    }
+            //}
+            //Console.WriteLine($"El digito mas bajo del arreglo esta en la posicion {pos_menor} y el mas alto en la posicion {pos_mayor}");
 
+            //PUNTO 8
+            //int[] arreglo_enteros = new int[10];
+            //Console.WriteLine("Ingrese 10 números enteros:");
+            //for (int i = 0; i < arreglo_enteros.Length; i++)
+            //{
+            //    arreglo_enteros[i] = int.Parse(Console.ReadLine());
+            //}
+            //bool eliminado = false;
+            //while (!eliminado)
+            //{
+            //    Console.Write("Los números ingresados son: ");
+            //    for (int i = 0; i < arreglo_enteros.Length; i++)
+            //    {
+            //        Console.Write($"{arreglo_enteros[i]} ");
+            //    }
+            //    Console.WriteLine();
+            //    Console.Write("Ingrese un valor a eliminar del arreglo: ");
+            //    int valor_a_eliminar = int.Parse(Console.ReadLine());
+            //    int[] posiciones_eliminar = new int[arreglo_enteros.Length];
+            //    int cant_apariciones = 0;
+            //    for (int i = 0; i < arreglo_enteros.Length; i++)
+            //    {
+            //        if (arreglo_enteros[i] == valor_a_eliminar)
+            //        {
+            //            posiciones_eliminar[cant_apariciones] = i;
+            //            cant_apariciones++;
+            //        }
+            //    }
+            //    if (cant_apariciones > 0)
+            //    {
+            //        int[] nuevoArreglo = new int[arreglo_enteros.Length - cant_apariciones];
+            //        int indiceNuevo = 0;
+            //        for (int i = 0; i < arreglo_enteros.Length; i++)
+            //        {
+            //            //verifico si la posicion actual es una de las posiciones a eliminar
+            //            bool es_pos_eliminar = false;
+            //            int j = 0;
+            //            while (j < cant_apariciones && !es_pos_eliminar)
+            //            {
+            //                if (i == posiciones_eliminar[j])
+            //                {
+            //                    es_pos_eliminar = true;
+            //                }
+            //                j++;
+            //            }
+            //            //si no es una posicion a eliminar, lo guardo en el nuevo arreglo
+            //            if (!es_pos_eliminar)
+            //            {
+            //                nuevoArreglo[indiceNuevo] = arreglo_enteros[i];
+            //                indiceNuevo++;
+            //            }
+            //        }
+            //        //actualizo el arreglo original
+            //        arreglo_enteros = nuevoArreglo;
+            //        eliminado = true;
+            //        Console.WriteLine($"Se eliminaron {cant_apariciones} apariciones del número {valor_a_eliminar} en el arreglo.");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"El valor {valor_a_eliminar} no se encuentra en el arreglo.");
+            //    }
+            //}
+            //if (arreglo_enteros.Length == 0)
+            //{
+            //    Console.WriteLine("El arreglo final está vacío.");
+            //} else
+            //{
+            //    Console.Write("El arreglo final es el siguiente: ");
+            //    for (int i = 0; i < arreglo_enteros.Length; i++)
+            //    {
+            //        Console.Write($"{arreglo_enteros[i]} ");
+            //    }
+            //}
 
-            int mayor = 0;
-            int menor = 10;
-            int pos_mayor = 0;
-            int pos_menor = 0;
-            int dig_actual;
-            for(int j = 0; j < digitos_num.Length; j++)
-            {
-                dig_actual = digitos_num[j];
-                if(dig_actual >mayor)
-                {
-                    mayor = dig_actual;
-                    pos_mayor = j;
-                }
-                if(dig_actual < menor)
-                {
-                    menor = dig_actual;
-                    pos_menor = j;
-                }
-            }
+            //PUNTO 9
+            /*
+            recorrer el arreglo de numeros posibles e ir comparando, si el elem de nposibles 
+            es igual al narreglo aumenta la cantidad de veces que aparece
+            */
+            //int[] arreglo_nums = new int[10];
+            //int[] posibles_nums = { 1, 2, 3, 4, 5 };
+            //int num_ingresado;
+            ////guardar los números ingresados por el usuario en el arreglo
+            //for (int i = 0; i < arreglo_nums.Length; i++)
+            //{
+            //    do
+            //    {
+            //        Console.Write("Ingrese un número entre 1 y 5: ");
+            //        num_ingresado = int.Parse(Console.ReadLine());
+            //        if(num_ingresado < 1 || num_ingresado > 5)
+            //        {
+            //            Console.WriteLine("El número ingresado no es válido. Intente nuevamente.");
+            //        }
+            //    } while (num_ingresado < 1 || num_ingresado > 5);
+            //    arreglo_nums[i] = num_ingresado;
+            //}
+            ////recorrer el arreglo de números posibles y contar cuántas veces aparece en el arreglo
+            //for (int i = 0; i < posibles_nums.Length; i++)
+            //{
+            //    int contador = 0;
+            //    for (int j = 0; j < arreglo_nums.Length; j++)
+            //    {
+            //        if (posibles_nums[i] == arreglo_nums[j])
+            //        {
+            //            contador++;
+            //        }
+            //    }
+            //    Console.WriteLine($"El número {posibles_nums[i]} aparece {contador} veces en el arreglo.");
+            //}
 
-            Console.WriteLine($"El digito mas bajo del arreglo esta en la posicion {pos_menor} y el mas alto en la posicion {pos_mayor}");
+            //PUNTO 10
+            //int[] arreglo_numeros = new int[10];
+            //for(int i = 0; i < arreglo_numeros.Length; i++)
+            //{
+            //    Console.Write("Ingrese un número: ");
+            //    arreglo_numeros[i] = int.Parse(Console.ReadLine());
+            //}
+            //int[] copia_arreglo = arreglo_numeros;
+            //int j = 0;
+            //int cant_veces = 0;
+            //while (j < copia_arreglo.Length && cant_veces <= 1)
+            //{
+            //    int k = 0;
+            //    cant_veces = 0;
+            //    while (k < arreglo_numeros.Length && cant_veces <= 1)
+            //    {
+            //        if (copia_arreglo[j] == arreglo_numeros[k])
+            //        {
+            //            cant_veces++;
+            //        }
+            //        k++;
+            //    }
+            //    j++;
+            //}
+            //if (cant_veces > 1)
+            //{
+            //    Console.WriteLine("El arreglo tiene números duplicados.");
+            //}
+            //else if(cant_veces == 1)
+            //{
+            //    Console.WriteLine("El arreglo no tiene números duplicados.");
+            //}
+
+            //PUNTO 11
+            //string[] lista_invitados = new string[10];
+            //bool salir = false;
+            //int cant_invitados = 0;
+            //Console.WriteLine("Ingrese los nombres de los invitados. Para finalizar la carga, ingrese 'salir'.");
+            //while (!salir)
+            //{
+            //    if (cant_invitados >= lista_invitados.Length)
+            //    {
+            //        string[] arreglo_aux = new string[lista_invitados.Length + 10];
+            //        for(int i = 0; i < lista_invitados.Length; i++)
+            //        {
+            //            arreglo_aux[i] = lista_invitados[i];
+            //        }
+            //        lista_invitados = arreglo_aux;
+            //    }
+            //    Console.Write($"Nombre del invitado nro. {cant_invitados+1}: ");
+            //    string nombre_invitado = Console.ReadLine();
+            //    if(string.IsNullOrWhiteSpace(nombre_invitado))
+            //    {
+            //        Console.WriteLine("El nombre no puede estar vacío. Intente nuevamente.");
+            //    }
+            //    else if (nombre_invitado.ToLower() == "salir")
+            //    {
+            //        salir = true;
+            //    } else
+            //    {
+            //        lista_invitados[cant_invitados] = nombre_invitado;
+            //        cant_invitados++;
+            //    }
+            //}
+            ////eliminar los nombres vacíos
+            //if(cant_invitados < lista_invitados.Length)
+            //{
+            //    string[] arreglo_aux2 = new string[cant_invitados];
+            //    for (int i = 0; i < cant_invitados; i++)
+            //    {
+            //        arreglo_aux2[i] = lista_invitados[i];
+            //    }
+            //    lista_invitados = arreglo_aux2;
+            //}
+            ////cantidad de invitados
+            //Console.WriteLine($"Participaran del evento {cant_invitados} invitados.");
+            ////imprimir la lista de invitados
+            //Console.WriteLine("Aqui tiene la lista de invitados:");
+            //for (int j = 0; j < cant_invitados; j++)
+            //{
+            //    Console.WriteLine($"Invitado {j + 1}: {lista_invitados[j]}");
+            //}
+
+            //PUNTO 12
+            
 
         }
 
