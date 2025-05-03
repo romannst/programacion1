@@ -801,6 +801,7 @@
             //PUNTO 4 (Procedimiento)
             //punto4();
 
+            //PUNTO 5
             //int[] arreglo1_aleatorio = new int[5];
             //int[] arreglo2_aleatorio = new int[5];
             //Random numero_aleatorio = new Random();
