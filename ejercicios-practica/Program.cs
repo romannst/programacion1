@@ -4,7 +4,6 @@
     {
         static void Main(string[] args)
         {
-            //cambio
             Console.WriteLine("Ingrese una opcion segun el ejercicio que desee ejecutar.");
             Console.WriteLine("1. -> Ejercicio 1");
             Console.WriteLine("2. -> Ejercicio 2");
