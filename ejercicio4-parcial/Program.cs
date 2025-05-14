@@ -8,7 +8,7 @@
         static int[,] tiempos = new int[MAX_PROYECTOS, MAX_TIEMPOS];
         static int cant_proy = 0;
         static int opcion = 0;
-
+        //mostrar los nombres de los tiempos al ingresarlos
         static void Main(string[] args)
         {
             int valor_salir = 6;
@@ -81,7 +81,7 @@
                         }
                     }
                 }
-                Console.WriteLine($"El proyecto con el tiempo mas rapido es: {nombre_proyecto} con un tiempo de {menor_tiempo}.");
+                Console.WriteLine($"El proyecto con el tiempo mas rapido es: {nombre_proyecto} con un tiempo de {menor_tiempo} dia/s.");
             }
         }
 
@@ -94,7 +94,7 @@
             else
             {
                 Console.Write("Ingrese el nombre del proyecto a editar: ");
-                string nombre_proyecto = Console.ReadLine();
+                string nombre_proyecto = Console.ReadLine().ToUpper();
                 int i = 0;
                 while (i < cant_proy && proyectos[i] != nombre_proyecto)
                 {
@@ -109,11 +109,26 @@
                     for (int tiempo = 0; tiempo < MAX_TIEMPOS; tiempo++)
                     {
                         Console.WriteLine("----Tiempos actuales----");
-                        Console.WriteLine($"Tiempo nro. {tiempo + 1}: {tiempos[i, tiempo]}");
-                        Console.Write($"Ingrese el nuevo tiempo nro. {tiempo + 1} del proyecto {nombre_proyecto}: ");
+                        string nombre_tiempo = "";
+                        switch (tiempo)
+                        {
+                            case 0:
+                                nombre_tiempo = "planificado";
+                                break;
+                            case 1:
+                                nombre_tiempo = "real";
+                                break;
+                            case 2:
+                                nombre_tiempo = "corregido";
+                                break;
+                            default:
+                                break;
+                        }
+                        Console.WriteLine($"Tiempo {nombre_tiempo}: {tiempos[i, tiempo]} dia/s");
+                        Console.Write($"Ingrese el nuevo tiempo: ");
                         tiempos[i, tiempo] = int.Parse(Console.ReadLine());
-                        Console.WriteLine("----Tiempos actualizados----");
                     }
+                    Console.WriteLine("----Tiempos actualizados----");
                 }
             }
         }
@@ -127,7 +142,7 @@
             else
             {
                 Console.Write("Ingrese el nombre del proyecto a calcular el promedio: ");
-                string nombre_proyecto = Console.ReadLine();
+                string nombre_proyecto = Console.ReadLine().ToUpper();
                 int i = 0;
                 while (i < cant_proy && proyectos[i] != nombre_proyecto)
                 {
@@ -139,13 +154,13 @@
                 }
                 else
                 {
-                    double suma = 0;
+                    int suma = 0;
                     for (int tiempo = 0; tiempo < MAX_TIEMPOS; tiempo++)
                     {
                         suma += tiempos[i, tiempo];
                     }
-                    double promedio = suma / MAX_TIEMPOS;
-                    Console.WriteLine($"El promedio de los tiempos del proyecto {nombre_proyecto} es: {promedio:F2}.");
+                    int promedio = suma / MAX_TIEMPOS;
+                    Console.WriteLine($"El promedio de los tiempos del proyecto {nombre_proyecto} es: {promedio} dia/s.");
                 }
             }
         }
@@ -159,7 +174,7 @@
             else
             {
                 Console.Write("Ingrese el nombre del proyecto a mostrar: ");
-                string nombre_proyecto = Console.ReadLine();
+                string nombre_proyecto = Console.ReadLine().ToUpper();
                 int i = 0;
                 while (i < cant_proy && proyectos[i] != nombre_proyecto)
                 {
@@ -173,7 +188,22 @@
                     Console.WriteLine($"Proyecto: {proyectos[i]}");
                     for (int tiempo = 0; tiempo < MAX_TIEMPOS; tiempo++)
                     {
-                        Console.WriteLine($"Tiempo nro. {tiempo + 1}: {tiempos[i, tiempo]}");
+                        string nombre_tiempo = "";
+                        switch (tiempo)
+                        {
+                            case 0:
+                                nombre_tiempo = "planificado";
+                                break;
+                            case 1:
+                                nombre_tiempo = "real";
+                                break;
+                            case 2:
+                                nombre_tiempo = "corregido";
+                                break;
+                            default:
+                                break;
+                        }
+                        Console.WriteLine($"Tiempo {nombre_tiempo}: {tiempos[i,tiempo]} dia/s");
                     }
                 }
             }
@@ -194,12 +224,41 @@
                         Console.Write("Ingrese nuevamente el nombre del proyecto: ");
                     }
                 } while (string.IsNullOrWhiteSpace(nombre_proyecto));
-                proyectos[cant_proy] = nombre_proyecto;
+                proyectos[cant_proy] = nombre_proyecto.ToUpper();
                 cant_proy++;
                 for (int tiempo = 0; tiempo < MAX_TIEMPOS; tiempo++)
                 {
-                    Console.Write($"Ingrese el tiempo nro. {tiempo + 1} del proyecto {nombre_proyecto}: ");
-                    tiempos[cant_proy - 1, tiempo] = int.Parse(Console.ReadLine());
+                    string nombre_tiempo = "";
+                    switch (tiempo)
+                    {
+                        case 0:
+                            nombre_tiempo = "planificado";
+                            break;
+                        case 1:
+                            nombre_tiempo = "real";
+                            break;
+                        case 2:
+                            nombre_tiempo = "corregido";
+                            break;
+                        default:
+                            break;
+                    }
+                    Console.Write($"Ingrese el tiempo {nombre_tiempo} del proyecto {nombre_proyecto}: ");
+                    int tiempo_ingresado;
+                    bool es_valido = false;
+                    do
+                    {
+                        if (int.TryParse(Console.ReadLine(), out tiempo_ingresado))
+                        {
+                            es_valido = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("El nombre del proyecto no puede estar vacio.");
+                            Console.Write("Ingrese nuevamente el nombre del proyecto: ");
+                        }
+                    } while (!es_valido);
+                    tiempos[cant_proy - 1, tiempo] = tiempo_ingresado;
                 }
             } else
             {
