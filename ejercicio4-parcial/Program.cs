@@ -8,20 +8,20 @@
         static int[,] tiempos = new int[MAX_PROYECTOS, MAX_TIEMPOS];
         static int cant_proy = 0;
         static int opcion = 0;
-        //mostrar los nombres de los tiempos al ingresarlos
         static void Main(string[] args)
         {
-            int valor_salir = 6;
+            int valor_salir = 7;
             while (opcion != valor_salir)
             {
                 Console.WriteLine("Menú:");
                 //opciones del menú
                 Console.WriteLine("1. Ingresar un proyecto");
                 Console.WriteLine("2. Mostrar un proyecto y sus tiempos");
-                Console.WriteLine("3. Calcular promedio de un proyecto");
-                Console.WriteLine("4. Editar tiempos de un proyecto");
-                Console.WriteLine("5. Mostrar tiempo mas rapido");
-                Console.WriteLine("6. Salir");
+                Console.WriteLine("3. Mostrar los proyectos y sus tiempos");
+                Console.WriteLine("4. Calcular promedio de un proyecto");
+                Console.WriteLine("5. Editar tiempos de un proyecto");
+                Console.WriteLine("6. Mostrar tiempo mas rapido");
+                Console.WriteLine("7. Salir");
 
                 Console.Write("Ingrese una opcion del menu: ");
                 opcion = int.Parse(Console.ReadLine());
@@ -37,18 +37,22 @@
                         mostrarProyecto();
                         break;
                     case 3:
+                        Console.WriteLine("----Mostrar proyectos----");
+                        mostrarProyectos();
+                        break;
+                    case 4:
                         Console.WriteLine("----Calcular promedio----");
                         promedioProyecto();
                         break;
-                    case 4:
+                    case 5:
                         Console.WriteLine("----Editar proyecto----");
                         editarProyecto();
                         break;
-                    case 5:
+                    case 6:
                         Console.WriteLine("----Mostrar tiempo mas rapido----");
                         tiempoMasRapido();
                         break;
-                    case 6:
+                    case 7:
                         Console.WriteLine("----Salir----");
                         Console.Clear();
                         Console.WriteLine("Saliendo del programa...");
@@ -208,7 +212,42 @@
                 }
             }
         }
-
+        private static void mostrarProyectos()
+        {
+            if (cant_proy == 0)
+            {
+                Console.WriteLine("No se han ingresado proyectos, la lista esta vacia.");
+            }
+            else
+            {
+                Console.WriteLine    ("--------Proyectos--------");
+                for (int i = 0; i < cant_proy; i++)
+                {
+                    Console.WriteLine("-------------------------");
+                    Console.WriteLine($"Proyecto: {proyectos[i]}");
+                    for (int tiempo = 0; tiempo < MAX_TIEMPOS; tiempo++)
+                    {
+                        string nombre_tiempo = "";
+                        switch (tiempo)
+                        {
+                            case 0:
+                                nombre_tiempo = "planificado";
+                                break;
+                            case 1:
+                                nombre_tiempo = "real";
+                                break;
+                            case 2:
+                                nombre_tiempo = "corregido";
+                                break;
+                            default:
+                                break;
+                        }
+                        Console.WriteLine($"Tiempo {nombre_tiempo}: {tiempos[i, tiempo]} dia/s");
+                    }
+                    Console.WriteLine("-------------------------");
+                }
+            }
+        }
         private static void ingresarProyecto()
         {
             if(cant_proy < MAX_PROYECTOS)
@@ -217,14 +256,14 @@
                 string nombre_proyecto;
                 do
                 {
-                    nombre_proyecto = Console.ReadLine();
+                    nombre_proyecto = Console.ReadLine().ToUpper();
                     if(string.IsNullOrWhiteSpace(nombre_proyecto))
                     {
                         Console.WriteLine("El nombre del proyecto no puede estar vacio.");
                         Console.Write("Ingrese nuevamente el nombre del proyecto: ");
                     }
                 } while (string.IsNullOrWhiteSpace(nombre_proyecto));
-                proyectos[cant_proy] = nombre_proyecto.ToUpper();
+                proyectos[cant_proy] = nombre_proyecto;
                 cant_proy++;
                 for (int tiempo = 0; tiempo < MAX_TIEMPOS; tiempo++)
                 {
